@@ -1,0 +1,4 @@
+rm text.txt 2>/dev/null
+
+od -A n -t u1 -v -N 150 /dev/urandom > numbers.txt
+./average.sh $(cat numbers.txt)
