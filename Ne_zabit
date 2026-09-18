@@ -1,4 +1,16 @@
 rm text.txt 2>/dev/null
 
-od -A n -t u1 -v -N 150 /dev/urandom > numbers.txt
+od -A n -t u1 -v -N 150 /dev/random > numbers.txt
 ./average.sh $(cat numbers.txt)
+
+1)
+gcc main.c swap.c -Wall -o program
+
+3)
+gcc -c revert_string.c -o revert_string.o
+ar rcs librevert.a revert_string.o
+gcc main.c -L. -lrevert -o app_static
+
+gcc -fPIC -c revert_string.c -o revert_string_dyn.o
+
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
